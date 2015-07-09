@@ -1,6 +1,6 @@
 <?php
 
-namespace Bolt\Extension\_17acklen\popularcontent;
+namespace Bolt\Extension\17acklen\popularcontent;
 
 use Bolt\Application;
 use Bolt\BaseExtension;

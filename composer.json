@@ -21,7 +21,7 @@
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extension\\_17acklen\\popularContent\\": ""
+            "Bolt\\Extension\\q17acklen\\popularContent\\": ""
         }
     }
 }

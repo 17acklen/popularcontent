@@ -1,5 +1,5 @@
 <?php
 
-namespace Bolt\Extension\17acklen\popularcontent;
+namespace Bolt\Extension\q17acklen\popularcontent;
 
 $app['extensions']->register(new Extension($app));

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bolt\Extension\17acklen\popularcontent;
+namespace Bolt\Extension\q17acklen\popularcontent;
 
 use Bolt\Application;
 use Bolt\BaseExtension;
@@ -40,7 +40,7 @@ class Extension extends BaseExtension
 
     public function getName()
     {
-        return "popularContent";
+        return "Popular Content";
     }
 
     /**

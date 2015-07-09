@@ -28,9 +28,7 @@ class Extension extends BaseExtension
 					`view_is_mobile` BOOL NOT NULL,
 					`view_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 	    		)";
-
-CREATE  TABLE "main"."example" ("v_id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "bool" BOOL NOT NULL , "text" VARCHAR NOT NULL , "timestamp" DATETIME NOT NULL  DEFAULT CURRENT_TIMESTAMP)
-        }
+		}
         else
         {
         	$query = "CREATE TABLE IF NOT EXISTS `$this->tableName`

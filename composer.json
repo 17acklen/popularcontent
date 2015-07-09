@@ -1,5 +1,5 @@
 {
-    "name": "17acklen/popularcontent",
+    "name": "q17acklen/popularcontent",
     "description": "An extension that records views of content and allows you to retrieve your most popular content.",
     "type": "bolt-extension",
     "keywords": ["popular"],
@@ -21,7 +21,7 @@
             "init.php"
         ],
         "psr-4": {
-            "Bolt\\Extension\\q17acklen\\popularContent\\": ""
+            "Bolt\\Extension\\q17acklen\\popularcontent\\": ""
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "17acklen/popularcontent",
+    "name": "zz17acklen/popularcontent",
     "description": "An extension that records views of content and allows you to retrieve your most popular content.",
     "type": "bolt-extension",
     "keywords": ["popular"],

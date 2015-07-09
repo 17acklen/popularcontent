@@ -1,0 +1,27 @@
+{
+    "name": "_17acklen/popularcontent",
+    "description": "An extension that records views of content and allows you to retrieve your most popular content.",
+    "type": "bolt-extension",
+    "keywords": ["popular content"],
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "MIT",
+    "minimum-stability" : "dev",
+    "prefer-stable" : true,
+    "authors": [
+        {
+            "name": "17acklen", 
+            "email": "info@17acklen.com",
+            "homepage": "https://17acklen.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "init.php"
+        ],
+        "psr-4": {
+            "Bolt\\Extension\\_17acklen\\popularContent\\": ""
+        }
+    }
+}

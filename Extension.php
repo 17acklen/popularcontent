@@ -16,21 +16,39 @@ class Extension extends BaseExtension
         $this->addTwigFunction('popcon_recordContentView', 'twig_popcon_recordContentView');
         $this->addTwigFunction('popcon_getPopularContent', 'twig_popcon_getPopularContent');
         $this->tableName = $this->config['general']['database']['prefix'] . '17acklen_content_views';
-    	$query = "CREATE TABLE IF NOT EXISTS `$this->tableName`
-    		(
-    			`view_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-				`content_id` INTEGER UNSIGNED NOT NULL,
-				`contenttype` VARCHAR(256) NOT NULL,
-				`view_ip_address` VARCHAR(45) NOT NULL,
-				`view_browser` VARCHAR(256),
-				`view_is_mobile` TINYINT(1) NOT NULL DEFAULT 0,
-				`view_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-				PRIMARY KEY (`view_id`),
-				INDEX content_id (`content_id`),
-				INDEX contenttype (`contenttype`),
-				INDEX view_ip_address (`view_ip_address`),
-				INDEX view_browser (`view_browser`)
-    		)";
+        if($this->app['config']->get('general/database/driver') == 'pdo_sqlite')
+        {
+        	$query = "CREATE TABLE IF NOT EXISTS `$this->tableName`
+	    		(
+	    			`view_id` INTEGER PRIMARY KEY,
+					`content_id` INTEGER NOT NULL,
+					`contenttype` VARCHAR NOT NULL,
+					`view_ip_address` VARCHAR NOT NULL,
+					`view_browser` VARCHAR NOT NULL,
+					`view_is_mobile` BOOL NOT NULL,
+					`view_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+	    		)";
+
+CREATE  TABLE "main"."example" ("v_id" INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , "bool" BOOL NOT NULL , "text" VARCHAR NOT NULL , "timestamp" DATETIME NOT NULL  DEFAULT CURRENT_TIMESTAMP)
+        }
+        else
+        {
+        	$query = "CREATE TABLE IF NOT EXISTS `$this->tableName`
+	    		(
+	    			`view_id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+					`content_id` INTEGER UNSIGNED NOT NULL,
+					`contenttype` VARCHAR(256) NOT NULL,
+					`view_ip_address` VARCHAR(45) NOT NULL,
+					`view_browser` VARCHAR(256),
+					`view_is_mobile` TINYINT(1) NOT NULL DEFAULT 0,
+					`view_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+					PRIMARY KEY (`view_id`),
+					INDEX content_id (`content_id`),
+					INDEX contenttype (`contenttype`),
+					INDEX view_ip_address (`view_ip_address`),
+					INDEX view_browser (`view_browser`)
+	    		)";
+        }
 		$stmt = $this->app['db']->prepare($query);
 		$res = $stmt->execute();
 		$this->userAgent = $_SERVER['HTTP_USER_AGENT'];

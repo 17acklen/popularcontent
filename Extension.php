@@ -12,11 +12,11 @@ class Extension extends BaseExtension
   	public $userAgent;
   	public $tableName;
 
-    public function initialize() {
+    public function initialize() { return;
         $this->addTwigFunction('popcon_recordContentView', 'twig_popcon_recordContentView');
         $this->addTwigFunction('popcon_getPopularContent', 'twig_popcon_getPopularContent');
         $this->tableName = $this->config['general']['database']['prefix'] . '17acklen_content_views';
-        if($this->app['config']->get('general/database/driver') == 'pdo_sqlite')
+        if(true)//$this->app['config']->get('general/database/driver') == 'pdo_sqlite')
         {
         	$query = "CREATE TABLE IF NOT EXISTS `$this->tableName`
 	    		(
@@ -25,7 +25,7 @@ class Extension extends BaseExtension
 					`contenttype` VARCHAR NOT NULL,
 					`view_ip_address` VARCHAR NOT NULL,
 					`view_browser` VARCHAR NOT NULL,
-					`view_is_mobile` BOOL NOT NULL,
+					`view_is_mobile` INTEGER(1) NOT NULL DEFAULT 0,
 					`view_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 	    		)";
 		}

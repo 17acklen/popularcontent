@@ -71,7 +71,7 @@ Example of `{{ set popular = popcon_getPopularContent(3, 'Pages') }}`:
 popular = array(
 	[0] => array("viewCnt"=>152, "contenttype"=>'Pages', "content_id"=>16),
 	[1] => array("viewCnt"=>118, "contenttype"=>'Pages', "content_id"=>3),
-	[3] => array("viewCnt"=>97, "contenttype"=>'Pages', "content_id"=>9),
+	[2] => array("viewCnt"=>97, "contenttype"=>'Pages', "content_id"=>9),
 )
 ```
 
